@@ -66,5 +66,44 @@ namespace Fonix.Spatial
         {
             return ( ToWellKnownText() );
         }
+
+        public static Polygon FromWellKnownBinary( byte[] wkb )
+        {
+            byte order = wkb[ 0 ];
+            int geometryType = BitConverter.ToInt32( wkb, 1 );
+
+            if ( geometryType != (int)GeometryType.Polygon )
+            {
+                // invalid geometry type
+                // TODO: maybe throw exception instead?
+                return ( null );
+            }
+
+            int numberOfRings = BitConverter.ToInt32( wkb, 5 );
+            LinearRing[] rings = new LinearRing[ numberOfRings ];
+
+            int offset = 9;
+            for ( int ringIdx = 0; ringIdx < numberOfRings; ringIdx++ )
+            {
+                int numberOfPoints = BitConverter.ToInt32( wkb, offset );
+                Point[] points = new Point[ numberOfPoints ];
+
+                offset += 4;
+
+                for ( int pointIdx = 0; pointIdx < numberOfPoints; pointIdx++ )
+                {
+                    double latitude = BitConverter.ToDouble( wkb, offset );
+                    double longitude = BitConverter.ToDouble( wkb, offset + 8 );
+
+                    offset += 16;
+
+                    points[ pointIdx ] = new Point( latitude, longitude );
+                }
+
+                rings[ ringIdx ] = new LinearRing( points );
+            }
+
+            return ( new Polygon( rings ) );
+        }
     }
 }

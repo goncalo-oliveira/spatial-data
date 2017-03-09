@@ -53,5 +53,32 @@ namespace Fonix.Spatial
         {
             return ( ToWellKnownText() );
         }
+
+        public static LineString FromWellKnownBinary( byte[] wkb )
+        {
+            byte order = wkb[ 0 ];
+            int geometryType = BitConverter.ToInt32( wkb, 1 );
+
+            if ( geometryType != (int)GeometryType.LineString )
+            {
+                // invalid geometry type
+                // TODO: maybe throw exception instead?
+                return ( null );
+            }
+
+            int numberOfPoints = BitConverter.ToInt32( wkb, 5 );
+            Point[] points = new Point[ numberOfPoints ];
+
+            for ( int idx = 0; idx < numberOfPoints; idx++ )
+            {
+                int offset = idx * 16;
+                double latitude = BitConverter.ToDouble( wkb, 9 + offset );
+                double longitude = BitConverter.ToDouble( wkb, 17 + offset );
+
+                points[ idx ] = new Point( latitude, longitude );
+            }
+
+            return ( new LineString( points ) );
+        }
     }
 }

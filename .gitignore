@@ -1,0 +1,4 @@
+.vs/
+src/Fonix.Spatial/obj/
+src/Fonix.Spatial/bin/
+src/Fonix.Spatial/project.lock.json

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70A62568-7CAC-4020-9A6E-1E93E9578E0C}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Fonix.Spatial", "src\Fonix.Spatial\Fonix.Spatial.xproj", "{5106FB99-B2A8-4520-A477-15F3DBEC19F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{49712257-670A-41FD-BD99-FD7D9CB8E92A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5106FB99-B2A8-4520-A477-15F3DBEC19F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5106FB99-B2A8-4520-A477-15F3DBEC19F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5106FB99-B2A8-4520-A477-15F3DBEC19F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5106FB99-B2A8-4520-A477-15F3DBEC19F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5106FB99-B2A8-4520-A477-15F3DBEC19F1} = {49712257-670A-41FD-BD99-FD7D9CB8E92A}
+	EndGlobalSection
+EndGlobal

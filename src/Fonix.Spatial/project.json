@@ -1,5 +1,9 @@
 ﻿{
-  "version": "0.1.0",
+  "version": "0.1.0-preview-*",
+  "packOptions": {
+    "licenseUrl": "https://github.com/goncalo-oliveira/spatial-data/blob/master/LICENSE.txt",
+    "projectUrl": "https://github.com/goncalo-oliveira/spatial-data"
+  },
 
   "dependencies": {
     "NETStandard.Library": "1.6.1"

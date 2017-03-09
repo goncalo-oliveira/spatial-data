@@ -5,6 +5,12 @@
     "projectUrl": "https://github.com/goncalo-oliveira/spatial-data"
   },
 
+  "scripts": {
+    "postcompile": [
+      "dotnet pack --no-build --configuration %compile:Configuration%"
+    ]
+  },
+
   "dependencies": {
     "NETStandard.Library": "1.6.1"
   },
